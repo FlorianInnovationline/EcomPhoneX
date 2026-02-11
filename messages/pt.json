@@ -1,0 +1,184 @@
+{
+  "common": {
+    "shop": "Loja",
+    "cart": "Carrinho",
+    "checkout": "Finalizar Compra",
+    "account": "Conta",
+    "search": "Pesquisar",
+    "addToCart": "Adicionar ao Carrinho",
+    "buyNow": "Comprar Agora",
+    "loading": "A carregar...",
+    "error": "Erro",
+    "success": "Sucesso",
+    "close": "Fechar",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "create": "Criar",
+    "back": "Voltar",
+    "next": "Seguinte",
+    "previous": "Anterior"
+  },
+  "nav": {
+    "home": "Início",
+    "shop": "Loja",
+    "collections": "Coleções",
+    "compare": "Comparar",
+    "support": "Apoio",
+    "shipping": "Envio",
+    "returns": "Devoluções"
+  },
+  "shop": {
+    "title": "Loja",
+    "subtitle": "Smartphones premium",
+    "search": "Pesquisar...",
+    "filters": "Filtros",
+    "sort": "Ordenar",
+    "noProducts": "Nenhum produto encontrado.",
+    "products": "produtos",
+    "product": "produto",
+    "sale": "Promoção"
+  },
+  "collections": {
+    "title": "Coleções",
+    "subtitle": "Seleções curadas dos nossos melhores dispositivos",
+    "noProducts": "Ainda não há produtos nesta coleção."
+  },
+  "compare": {
+    "title": "Comparar Produtos",
+    "subtitle": "Selecione até 3 produtos para comparar especificações",
+    "selectedProducts": "Produtos Selecionados",
+    "maximumReached": "Máximo de produtos selecionados",
+    "selectMore": "Selecione mais {count} {count, plural, one {produto} other {produtos}} para comparar",
+    "loading": "A carregar produtos...",
+    "selected": "Selecionado",
+    "addToCompare": "Adicionar à Comparação",
+    "maximumReachedButton": "Máximo atingido"
+  },
+  "support": {
+    "title": "Centro de Apoio",
+    "subtitle": "Estamos aqui para ajudar com qualquer questão ou preocupação",
+    "trackOrder": "Acompanhar Encomenda",
+    "trackOrderDesc": "Verifique o estado da sua encomenda com o número de rastreamento",
+    "shippingInfo": "Informações de Envio",
+    "shippingInfoDesc": "Saiba mais sobre as nossas opções de envio e prazos de entrega",
+    "returnsExchanges": "Devoluções e Trocas",
+    "returnsExchangesDesc": "Saiba como devolver ou trocar a sua compra",
+    "warrantyCoverage": "Cobertura de Garantia",
+    "warrantyCoverageDesc": "Compreenda a cobertura da sua garantia e como reclamar",
+    "contactUs": "Contacte-nos",
+    "contactUsDesc": "Entre em contacto com a nossa equipa de apoio",
+    "faq": "Perguntas Frequentes",
+    "faqDesc": "Perguntas frequentes e respostas"
+  },
+  "footer": {
+    "tagline": "Smartphones premium, entregues com cuidado.",
+    "shop": "Loja",
+    "allProducts": "Todos os Produtos",
+    "collections": "Coleções",
+    "compare": "Comparar",
+    "deals": "Ofertas",
+    "support": "Apoio",
+    "supportHub": "Centro de Apoio",
+    "trackOrder": "Acompanhar Encomenda",
+    "contactUs": "Contacte-nos",
+    "faq": "Perguntas Frequentes",
+    "shipping": "Envio",
+    "returns": "Devoluções",
+    "warranty": "Garantia",
+    "company": "Empresa",
+    "aboutUs": "Sobre Nós",
+    "privacyPolicy": "Política de Privacidade",
+    "termsOfService": "Termos de Serviço",
+    "copyright": "Todos os direitos reservados."
+  },
+  "home": {
+    "hero": {
+      "title": "Smartphones Premium, Entregues",
+      "subtitle": "Descubra os últimos dispositivos Xiaomi com serviço premium e garantia",
+      "cta": "Comprar Agora"
+    },
+    "featured": {
+      "title": "Xiaomi em Destaque",
+      "subtitle": "Seleção curada dos nossos melhores dispositivos"
+    },
+    "features": {
+      "title": "Tecnologia Premium",
+      "subtitle": "Experimente a inovação no seu melhor",
+      "camera": {
+        "title": "Sistema de Câmaras Leica",
+        "description": "Sensor principal de 1 polegada, teleobjetiva de 200MP. Um sistema de quatro câmaras futurista da Leica."
+      },
+      "display": {
+        "title": "Ecrã Superior",
+        "description": "AMOLED 2K+ de 6.73\" com taxa de atualização de 120Hz e suporte Dolby Vision."
+      },
+      "performance": {
+        "title": "Snapdragon 8 Gen 4",
+        "description": "Alimentado pelo mais recente processador flagship para desempenho incomparável."
+      },
+      "battery": {
+        "title": "Energia Duradoura",
+        "description": "Bateria de 5500mAh com tecnologia HyperCharge de 120W."
+      },
+      "design": {
+        "title": "Design Premium",
+        "description": "Criado com precisão, apresentando materiais premium e acabamentos elegantes."
+      },
+      "security": {
+        "title": "Segurança Avançada",
+        "description": "Sensor de impressão digital no ecrã e desbloqueio facial para acesso seguro."
+      }
+    },
+    "why": {
+      "title": "Porquê Comprar Connosco",
+      "subtitle": "Serviço premium, qualidade garantida",
+      "warranty": "Garantia Oficial",
+      "warrantyDesc": "Todos os dispositivos vêm com garantia oficial do fabricante",
+      "shipping": "Envio Rápido",
+      "shippingDesc": "Envio gratuito em Portugal, entregue em 2-3 dias úteis",
+      "support": "Apoio Especializado",
+      "supportDesc": "A nossa equipa está aqui para o ajudar a escolher o dispositivo perfeito"
+    },
+    "bestSellers": {
+      "title": "Mais Vendidos",
+      "subtitle": "Os nossos dispositivos mais populares"
+    }
+  },
+  "product": {
+    "specs": "Especificações",
+    "inBox": "O que vem na Caixa",
+    "warranty": "Garantia",
+    "availability": "Disponibilidade",
+    "inStock": "Em Stock",
+    "outOfStock": "Esgotado",
+    "selectVariant": "Selecionar Variante",
+    "storage": "Armazenamento",
+    "color": "Cor"
+  },
+  "cart": {
+    "title": "Carrinho de Compras",
+    "empty": "O seu carrinho está vazio",
+    "subtitle": "Subtotal",
+    "shipping": "Envio",
+    "tax": "IVA",
+    "total": "Total",
+    "continueShopping": "Continuar a Comprar",
+    "proceedToCheckout": "Finalizar Compra",
+    "remove": "Remover"
+  },
+  "admin": {
+    "dashboard": "Painel",
+    "products": "Produtos",
+    "orders": "Encomendas",
+    "customers": "Clientes",
+    "settings": "Definições",
+    "overview": {
+      "revenue": "Receita",
+      "orders": "Encomendas",
+      "aov": "Valor Médio por Encomenda",
+      "margin": "Margem Bruta"
+    }
+  }
+}

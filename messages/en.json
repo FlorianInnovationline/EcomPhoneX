@@ -1,0 +1,184 @@
+{
+  "common": {
+    "shop": "Shop",
+    "cart": "Cart",
+    "checkout": "Checkout",
+    "account": "Account",
+    "search": "Search",
+    "addToCart": "Add to Cart",
+    "buyNow": "Buy Now",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "nav": {
+    "home": "Home",
+    "shop": "Shop",
+    "collections": "Collections",
+    "compare": "Compare",
+    "support": "Support",
+    "shipping": "Shipping",
+    "returns": "Returns"
+  },
+  "shop": {
+    "title": "Shop",
+    "subtitle": "Premium smartphones",
+    "search": "Search...",
+    "filters": "Filters",
+    "sort": "Sort",
+    "noProducts": "No products found.",
+    "products": "products",
+    "product": "product",
+    "sale": "Sale"
+  },
+  "collections": {
+    "title": "Collections",
+    "subtitle": "Curated selections of our finest devices",
+    "noProducts": "No products in this collection yet."
+  },
+  "compare": {
+    "title": "Compare Products",
+    "subtitle": "Select up to 3 products to compare specifications",
+    "selectedProducts": "Selected Products",
+    "maximumReached": "Maximum products selected",
+    "selectMore": "Select {count} more {count, plural, one {product} other {products}} to compare",
+    "loading": "Loading products...",
+    "selected": "Selected",
+    "addToCompare": "Add to Compare",
+    "maximumReachedButton": "Maximum reached"
+  },
+  "support": {
+    "title": "Support Hub",
+    "subtitle": "We're here to help you with any questions or concerns",
+    "trackOrder": "Track Your Order",
+    "trackOrderDesc": "Check the status of your order with your tracking number",
+    "shippingInfo": "Shipping Information",
+    "shippingInfoDesc": "Learn about our shipping options and delivery times",
+    "returnsExchanges": "Returns & Exchanges",
+    "returnsExchangesDesc": "Find out how to return or exchange your purchase",
+    "warrantyCoverage": "Warranty Coverage",
+    "warrantyCoverageDesc": "Understand your warranty coverage and how to claim",
+    "contactUs": "Contact Us",
+    "contactUsDesc": "Get in touch with our support team",
+    "faq": "FAQ",
+    "faqDesc": "Frequently asked questions and answers"
+  },
+  "footer": {
+    "tagline": "Premium smartphones, delivered with care.",
+    "shop": "Shop",
+    "allProducts": "All Products",
+    "collections": "Collections",
+    "compare": "Compare",
+    "deals": "Deals",
+    "support": "Support",
+    "supportHub": "Support Hub",
+    "trackOrder": "Track Order",
+    "contactUs": "Contact Us",
+    "faq": "FAQ",
+    "shipping": "Shipping",
+    "returns": "Returns",
+    "warranty": "Warranty",
+    "company": "Company",
+    "aboutUs": "About Us",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "copyright": "All rights reserved."
+  },
+  "home": {
+    "hero": {
+      "title": "Premium Smartphones, Delivered",
+      "subtitle": "Discover the latest Xiaomi devices with premium service and warranty",
+      "cta": "Shop Now"
+    },
+    "featured": {
+      "title": "Featured Xiaomi",
+      "subtitle": "Handpicked selection of our best devices"
+    },
+    "features": {
+      "title": "Premium Technology",
+      "subtitle": "Experience innovation at its finest",
+      "camera": {
+        "title": "Leica Camera System",
+        "description": "1-inch main sensor, 200MP telephoto. A futuristic quad-camera system from Leica."
+      },
+      "display": {
+        "title": "Superior Display",
+        "description": "6.73\" AMOLED 2K+ with 120Hz refresh rate and Dolby Vision support."
+      },
+      "performance": {
+        "title": "Snapdragon 8 Gen 4",
+        "description": "Powered by the latest flagship processor for unmatched performance."
+      },
+      "battery": {
+        "title": "Long-Lasting Power",
+        "description": "5500mAh battery with 120W HyperCharge technology."
+      },
+      "design": {
+        "title": "Premium Design",
+        "description": "Crafted with precision, featuring premium materials and elegant finishes."
+      },
+      "security": {
+        "title": "Advanced Security",
+        "description": "In-display fingerprint sensor and face unlock for secure access."
+      }
+    },
+    "why": {
+      "title": "Why Buy With Us",
+      "subtitle": "Premium service, guaranteed quality",
+      "warranty": "Official Warranty",
+      "warrantyDesc": "All devices come with official manufacturer warranty",
+      "shipping": "Fast Shipping",
+      "shippingDesc": "Free shipping across Portugal, delivered in 2-3 business days",
+      "support": "Expert Support",
+      "supportDesc": "Our team is here to help you choose the perfect device"
+    },
+    "bestSellers": {
+      "title": "Best Sellers",
+      "subtitle": "Our most popular devices"
+    }
+  },
+  "product": {
+    "specs": "Specifications",
+    "inBox": "What's in the Box",
+    "warranty": "Warranty",
+    "availability": "Availability",
+    "inStock": "In Stock",
+    "outOfStock": "Out of Stock",
+    "selectVariant": "Select Variant",
+    "storage": "Storage",
+    "color": "Color"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "empty": "Your cart is empty",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "tax": "Tax",
+    "total": "Total",
+    "continueShopping": "Continue Shopping",
+    "proceedToCheckout": "Proceed to Checkout",
+    "remove": "Remove"
+  },
+  "admin": {
+    "dashboard": "Dashboard",
+    "products": "Products",
+    "orders": "Orders",
+    "customers": "Customers",
+    "settings": "Settings",
+    "overview": {
+      "revenue": "Revenue",
+      "orders": "Orders",
+      "aov": "Average Order Value",
+      "margin": "Gross Margin"
+    }
+  }
+}
