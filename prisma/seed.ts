@@ -91,6 +91,30 @@ async function main() {
     },
   })
 
+  const earbudsCategory = await prisma.category.upsert({
+    where: { slug: 'earbuds' },
+    update: {},
+    create: {
+      name: 'Earbuds',
+      slug: 'earbuds',
+      description: 'True wireless earbuds and audio',
+      isActive: true,
+      sortOrder: 4,
+    },
+  })
+
+  const lifestyleCategory = await prisma.category.upsert({
+    where: { slug: 'lifestyle' },
+    update: {},
+    create: {
+      name: 'Lifestyle',
+      slug: 'lifestyle',
+      description: 'Personal care & home: shavers, hair dryers, blenders, speakers',
+      isActive: true,
+      sortOrder: 5,
+    },
+  })
+
   console.log('✅ Created categories')
 
   // Create sample products

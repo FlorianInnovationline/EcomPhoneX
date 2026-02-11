@@ -1,0 +1,262 @@
+[
+  {
+    "title": "Xiaomi 14 Ultra",
+    "slug": "xiaomi-14-ultra",
+    "brand": "Xiaomi",
+    "shortDescription": "Flagship camera phone with Leica optics",
+    "description": "The Xiaomi 14 Ultra features a 1-inch main sensor and Leica Summilux lenses for professional-grade photography.",
+    "status": "PUBLISHED",
+    "isFeatured": true,
+    "variants": [
+      {
+        "sku": "XIA-14U-256-BLK",
+        "price": 1299.99,
+        "compareAtPrice": 1399.99,
+        "cost": 900,
+        "currency": "EUR",
+        "inventoryQty": 25,
+        "trackInventory": true,
+        "attributes": { "color": "Black", "storage": "256GB" },
+        "active": true
+      },
+      {
+        "sku": "XIA-14U-512-BLK",
+        "price": 1499.99,
+        "compareAtPrice": 1599.99,
+        "cost": 1000,
+        "currency": "EUR",
+        "inventoryQty": 15,
+        "trackInventory": true,
+        "attributes": { "color": "Black", "storage": "512GB" },
+        "active": true
+      }
+    ],
+    "images": [
+      { "url": "/images/placeholders/phone1.png", "alt": "Xiaomi 14 Ultra", "sortOrder": 0 }
+    ],
+    "specs": [
+      { "key": "Display", "value": "6.73\" LTPO AMOLED, 120Hz", "group": "Display", "sortOrder": 1 },
+      { "key": "Processor", "value": "Snapdragon 8 Gen 3", "group": "Performance", "sortOrder": 1 },
+      { "key": "RAM", "value": "16GB", "group": "Performance", "sortOrder": 2 },
+      { "key": "Camera", "value": "50MP Leica Quad Camera", "group": "Camera", "sortOrder": 1 },
+      { "key": "Battery", "value": "5000mAh, 90W wired, 80W wireless", "group": "Battery", "sortOrder": 1 }
+    ]
+  },
+  {
+    "title": "Redmi Note 13 Pro",
+    "slug": "redmi-note-13-pro",
+    "brand": "Xiaomi",
+    "shortDescription": "Mid-range all-rounder with 200MP camera",
+    "description": "The Redmi Note 13 Pro offers a 200MP main camera and 120Hz AMOLED display at an accessible price.",
+    "status": "PUBLISHED",
+    "isFeatured": false,
+    "variants": [
+      {
+        "sku": "RN13P-128-BLU",
+        "price": 349.99,
+        "compareAtPrice": 399.99,
+        "currency": "EUR",
+        "inventoryQty": 100,
+        "attributes": { "color": "Ocean Blue", "storage": "128GB" },
+        "active": true
+      }
+    ],
+    "images": [
+      { "url": "/images/placeholders/phone1.png", "alt": "Redmi Note 13 Pro", "sortOrder": 0 }
+    ],
+    "specs": [
+      { "key": "Display", "value": "6.67\" AMOLED, 120Hz", "group": "Display", "sortOrder": 1 },
+      { "key": "Processor", "value": "Snapdragon 7s Gen 2", "group": "Performance", "sortOrder": 1 },
+      { "key": "Camera", "value": "200MP Main + 8MP Ultra-wide + 2MP Macro", "group": "Camera", "sortOrder": 1 }
+    ]
+  },
+  {
+    "title": "Xiaomi Watch S3",
+    "slug": "xiaomi-watch-s3",
+    "brand": "Xiaomi",
+    "shortDescription": "Premium smartwatch with long battery life",
+    "description": "The Xiaomi Watch S3 delivers a refined design, advanced health tracking, and extended battery life for everyday lifestyle use.",
+    "status": "PUBLISHED",
+    "isFeatured": false,
+    "variants": [
+      {
+        "sku": "XIA-WATCH-S3-BLK",
+        "price": 129.99,
+        "compareAtPrice": 149.99,
+        "currency": "EUR",
+        "inventoryQty": 30,
+        "attributes": { "color": "Black" },
+        "active": true
+      }
+    ],
+    "images": [
+      { "url": "/images/placeholders/watch.png", "alt": "Xiaomi Watch S3", "sortOrder": 0 }
+    ],
+    "specs": [
+      { "key": "Battery", "value": "Up to 15 days", "group": "Battery", "sortOrder": 1 },
+      { "key": "Water Resistance", "value": "5ATM", "group": "Durability", "sortOrder": 1 }
+    ]
+  },
+
+  {
+    "title": "Xiaomi VR Glasses",
+    "slug": "xiaomi-vr-glasses",
+    "brand": "Xiaomi",
+    "shortDescription": "Immersive virtual reality glasses",
+    "description": "Xiaomi VR Glasses offer immersive visuals in a lightweight and comfortable design.",
+    "status": "PUBLISHED",
+    "isFeatured": false,
+    "variants": [
+      {
+        "sku": "XIA-VR-001",
+        "price": 199.99,
+        "compareAtPrice": 229.99,
+        "currency": "EUR",
+        "inventoryQty": 10,
+        "attributes": { "color": "Black" },
+        "active": true
+      }
+    ],
+    "images": [
+      { "url": "/images/placeholders/vr.png", "alt": "Xiaomi VR Glasses", "sortOrder": 0 }
+    ],
+    "specs": [
+      { "key": "Use Case", "value": "Entertainment & Gaming", "group": "General", "sortOrder": 1 }
+    ]
+  },
+
+  {
+    "title": "Xiaomi Buds 5",
+    "slug": "xiaomi-buds-5",
+    "brand": "Xiaomi",
+    "shortDescription": "True wireless earbuds with premium sound",
+    "description": "Xiaomi Buds 5 combine comfort, sound quality, and modern wireless performance.",
+    "status": "PUBLISHED",
+    "isFeatured": false,
+    "variants": [
+      {
+        "sku": "XIA-BUDS5-WHT",
+        "price": 79.99,
+        "compareAtPrice": 99.99,
+        "currency": "EUR",
+        "inventoryQty": 50,
+        "attributes": { "color": "White" },
+        "active": true
+      }
+    ],
+    "images": [
+      { "url": "/images/placeholders/earbuds.png", "alt": "Xiaomi Buds 5", "sortOrder": 0 }
+    ],
+    "specs": [
+      { "key": "Connectivity", "value": "Bluetooth", "group": "Audio", "sortOrder": 1 }
+    ]
+  },
+
+  {
+    "title": "Xiaomi Electric Shaver S700",
+    "slug": "xiaomi-electric-shaver-s700",
+    "brand": "Xiaomi",
+    "shortDescription": "Premium electric shaver for daily grooming",
+    "description": "The Xiaomi S700 electric shaver offers smooth, precise shaving with a modern design.",
+    "status": "PUBLISHED",
+    "isFeatured": false,
+    "variants": [
+      {
+        "sku": "XIA-SHAVE-S700",
+        "price": 99.99,
+        "compareAtPrice": 119.99,
+        "currency": "EUR",
+        "inventoryQty": 20,
+        "attributes": { "color": "Dark Grey" },
+        "active": true
+      }
+    ],
+    "images": [
+      { "url": "/images/placeholders/shaver.png", "alt": "Xiaomi Electric Shaver S700", "sortOrder": 0 }
+    ],
+    "specs": [
+      { "key": "Usage", "value": "Wet & Dry", "group": "General", "sortOrder": 1 }
+    ]
+  },
+
+  {
+    "title": "Xiaomi Hair Dryer H500",
+    "slug": "xiaomi-hair-dryer-h500",
+    "brand": "Xiaomi",
+    "shortDescription": "Compact hair dryer with powerful airflow",
+    "description": "The Xiaomi H500 hair dryer delivers fast drying with a minimalist design.",
+    "status": "PUBLISHED",
+    "isFeatured": false,
+    "variants": [
+      {
+        "sku": "XIA-DRY-H500",
+        "price": 59.99,
+        "compareAtPrice": 79.99,
+        "currency": "EUR",
+        "inventoryQty": 25,
+        "attributes": { "color": "White" },
+        "active": true
+      }
+    ],
+    "images": [
+      { "url": "/images/placeholders/hairdryer.png", "alt": "Xiaomi Hair Dryer H500", "sortOrder": 0 }
+    ],
+    "specs": [
+      { "key": "Motor", "value": "High-speed motor", "group": "Performance", "sortOrder": 1 }
+    ]
+  },
+
+  {
+    "title": "Xiaomi Smart Blender",
+    "slug": "xiaomi-smart-blender",
+    "brand": "Xiaomi",
+    "shortDescription": "Smart blender for smoothies and soups",
+    "description": "The Xiaomi Smart Blender brings versatility and clean design to your kitchen.",
+    "status": "PUBLISHED",
+    "isFeatured": false,
+    "variants": [
+      {
+        "sku": "XIA-BLENDER-01",
+        "price": 89.99,
+        "compareAtPrice": 109.99,
+        "currency": "EUR",
+        "inventoryQty": 15,
+        "attributes": { "color": "White" },
+        "active": true
+      }
+    ],
+    "images": [
+      { "url": "/images/placeholders/blender.png", "alt": "Xiaomi Smart Blender", "sortOrder": 0 }
+    ],
+    "specs": [
+      { "key": "Modes", "value": "Multiple blending modes", "group": "Functions", "sortOrder": 1 }
+    ]
+  },
+
+  {
+    "title": "Xiaomi Smart Speaker",
+    "slug": "xiaomi-smart-speaker",
+    "brand": "Xiaomi",
+    "shortDescription": "Smart speaker with clean sound",
+    "description": "The Xiaomi Smart Speaker delivers rich sound in a compact, minimalist form.",
+    "status": "PUBLISHED",
+    "isFeatured": false,
+    "variants": [
+      {
+        "sku": "XIA-SPEAKER-01",
+        "price": 39.99,
+        "compareAtPrice": 49.99,
+        "currency": "EUR",
+        "inventoryQty": 60,
+        "attributes": { "color": "Grey" },
+        "active": true
+      }
+    ],
+    "images": [
+      { "url": "/images/placeholders/speaker.png", "alt": "Xiaomi Smart Speaker", "sortOrder": 0 }
+    ],
+    "specs": [
+      { "key": "Connectivity", "value": "Wi-Fi & Bluetooth", "group": "Audio", "sortOrder": 1 }
+    ]
+  }
+]

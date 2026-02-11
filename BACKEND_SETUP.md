@@ -83,6 +83,25 @@ npm run dev
 2. Login with: `admin@xenomobile.com` (no password needed for now)
 3. You'll be redirected to `/admin`
 
+## Adding products via terminal (CLI)
+
+You can add full products to the database with a script; they will appear in the storefront and in the admin dashboard.
+
+1. **Install dependencies** (if not already): `npm install`
+2. **Create a JSON file** with an array of products, e.g. `scripts/products-to-add.json`. Use `scripts/products-to-add.example.json` as a template (copy it to `products-to-add.json` and edit).
+3. **Run the script:**
+   - `npm run add-products` — uses `scripts/products-to-add.json`
+   - `npm run add-products -- path/to/your-products.json` — use a custom file
+4. **Refresh the admin** at `/admin/products` to see the new products.
+
+Each product in the JSON must have at least: `title`, `slug`, `brand`, and `variants` (array with at least one variant: `sku`, `price`). Optional: `shortDescription`, `description`, `status`, `isFeatured`, `primaryCategoryId`, `images`, `specs`. Duplicate slugs are skipped (existing products are not overwritten).
+
+**Assign products to categories** (after adding products):  
+`npm run assign-categories`  
+This creates any missing categories (phones, android, xiaomi, watches, vr-glasses, earbuds, lifestyle) and assigns each product to the correct category. Edit `scripts/assign-product-categories.ts` to change the mapping.
+
+Run each command on its own line (do not paste multiple commands with `#` comments on one line, or the shell may pass the comment as an argument).
+
 ## Database Schema Overview
 
 The Prisma schema includes:

@@ -1,11 +1,14 @@
 "use client"
 
+import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardTitle } from "@/components/ui/card"
 import { Plus, Package, Edit, Trash2 } from "lucide-react"
 import { formatPrice } from "@/lib/utils"
 import { motion } from "framer-motion"
-import Link from "next/link"
+import { deleteProductAction } from "./actions"
+import { ProductEditModal } from "./product-edit-modal"
 
 interface Product {
   id: string
@@ -15,7 +18,7 @@ interface Product {
   status: string
   variants: Array<{
     id: string
-    price: any
+    price: unknown
     inventoryQty: number
   }>
 }
@@ -24,7 +27,33 @@ interface ProductsListProps {
   products: Product[]
 }
 
-export function ProductsList({ products }: ProductsListProps) {
+export function ProductsList({ products: initialProducts }: ProductsListProps) {
+  const router = useRouter()
+  const [products, setProducts] = useState(initialProducts)
+  useEffect(() => {
+    setProducts(initialProducts)
+  }, [initialProducts])
+  const [deletingId, setDeletingId] = useState<string | null>(null)
+  const [editModalOpen, setEditModalOpen] = useState(false)
+  const [editingProductId, setEditingProductId] = useState<string | null>(null)
+
+  async function handleDelete(id: string, title: string) {
+    if (!confirm(`Delete product "${title}"? This cannot be undone.`)) return
+    setDeletingId(id)
+    try {
+      await deleteProductAction(id)
+      setProducts((prev) => prev.filter((p) => p.id !== id))
+      router.refresh()
+    } finally {
+      setDeletingId(null)
+    }
+  }
+
+  function openEdit(id: string) {
+    setEditingProductId(id)
+    setEditModalOpen(true)
+  }
+
   return (
     <div className="space-y-10">
       <motion.div
@@ -46,13 +75,8 @@ export function ProductsList({ products }: ProductsListProps) {
       </motion.div>
 
       <Card className="border-border/50 bg-gradient-to-br from-background to-muted/20">
-        <CardHeader className="pb-4">
-          <div className="flex items-center justify-between">
-            <CardTitle className="text-lg font-light tracking-tight">All Products</CardTitle>
-            <Package className="h-5 w-5 text-muted-foreground/40" />
-          </div>
-        </CardHeader>
-        <CardContent>
+        <CardTitle className="sr-only">All Products</CardTitle>
+        <CardContent className="pt-6">
           <div className="space-y-3">
             {products.map((product, index) => {
               const totalStock = product.variants.reduce((sum, v) => sum + v.inventoryQty, 0)
@@ -73,36 +97,49 @@ export function ProductsList({ products }: ProductsListProps) {
                     <div>
                       <div className="flex items-center gap-2 mb-1">
                         <h3 className="font-light text-base">{product.title}</h3>
-                        {product.status === 'DRAFT' && (
+                        {product.status === "DRAFT" && (
                           <span className="text-xs px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-600 border border-amber-500/20 font-light">
                             Draft
                           </span>
                         )}
-                        {product.status === 'ARCHIVED' && (
+                        {product.status === "ARCHIVED" && (
                           <span className="text-xs px-2 py-0.5 rounded-full bg-gray-500/10 text-gray-600 border border-gray-500/20 font-light">
                             Archived
                           </span>
                         )}
                       </div>
                       <div className="flex items-center gap-3 text-sm">
-                        <span className="text-muted-foreground/70 font-light">{formatPrice(lowestPrice)}</span>
+                        <span className="text-muted-foreground/70 font-light">
+                          {formatPrice(lowestPrice)}
+                        </span>
                         <span className="text-muted-foreground/40">•</span>
-                        <span className="text-muted-foreground/70 font-light">{totalStock} in stock</span>
+                        <span className="text-muted-foreground/70 font-light">
+                          {totalStock} in stock
+                        </span>
                         <span className="text-muted-foreground/40">•</span>
                         <span className="text-muted-foreground/70 font-light">{product.brand}</span>
                       </div>
                     </div>
                   </div>
                   <div className="flex gap-2">
-                    <Button variant="outline" size="sm" className="rounded-xl font-light h-9 px-4 border-border/50 hover:bg-muted" asChild>
-                      <Link href={`/admin/products/${product.id}`}>
-                        <Edit className="mr-2 h-3.5 w-3.5" />
-                        Edit
-                      </Link>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="rounded-xl font-light h-9 px-4 border-border/50 hover:bg-muted"
+                      onClick={() => openEdit(product.id)}
+                    >
+                      <Edit className="mr-2 h-3.5 w-3.5" />
+                      Edit
                     </Button>
-                    <Button variant="destructive" size="sm" className="rounded-xl font-light h-9 px-4">
+                    <Button
+                      variant="destructive"
+                      size="sm"
+                      className="rounded-xl font-light h-9 px-4"
+                      disabled={deletingId === product.id}
+                      onClick={() => handleDelete(product.id, product.title)}
+                    >
                       <Trash2 className="mr-2 h-3.5 w-3.5" />
-                      Delete
+                      {deletingId === product.id ? "Deleting…" : "Delete"}
                     </Button>
                   </div>
                 </motion.div>
@@ -111,6 +148,16 @@ export function ProductsList({ products }: ProductsListProps) {
           </div>
         </CardContent>
       </Card>
+
+      <ProductEditModal
+        productId={editingProductId}
+        open={editModalOpen}
+        onOpenChange={(open) => {
+          setEditModalOpen(open)
+          if (!open) setEditingProductId(null)
+        }}
+        onSuccess={() => router.refresh()}
+      />
     </div>
   )
 }
