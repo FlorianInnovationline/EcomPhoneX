@@ -21,7 +21,7 @@ export default async function DealsPage() {
       <Section>
         <div className="container px-4">
           {deals.length > 0 ? (
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {deals.map((deal) => {
                 const discountedPrice = deal.product.variants[0].price * (1 - deal.discountPercent / 100)
                 return (

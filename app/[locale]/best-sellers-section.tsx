@@ -14,7 +14,7 @@ export function BestSellersSection({ products }: { products: Product[] }) {
   return (
     <Section>
       <div className="container px-4">
-        <div className="flex items-end justify-between mb-12">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
           <SectionHeader 
             title={t("title") || "Best Sellers"} 
             subtitle={t("subtitle")} 
@@ -24,12 +24,12 @@ export function BestSellersSection({ products }: { products: Product[] }) {
           <Button
             variant="ghost"
             onClick={() => router.push("/shop")}
-            className="rounded-full font-light"
+            className="rounded-full font-light w-full sm:w-auto min-h-[44px]"
           >
             View All →
           </Button>
         </div>
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
           {products.map((product, index) => (
             <ProductTile key={product.id} product={product} priority={index === 0} />
           ))}

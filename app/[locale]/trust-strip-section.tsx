@@ -12,14 +12,14 @@ export function TrustStripSection() {
   ]
 
   return (
-    <Section variant="muted" className="py-12">
+    <Section variant="muted" className="py-8 sm:py-12">
       <div className="container px-4">
-        <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 lg:gap-16">
+        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-12 lg:gap-16">
           {items.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-light text-muted-foreground/80 hover:text-foreground transition-colors"
+              className="text-xs sm:text-sm font-light text-muted-foreground/80 hover:text-foreground transition-colors min-h-[44px] flex items-center justify-center py-2 sm:py-0"
             >
               {item.label}
             </Link>

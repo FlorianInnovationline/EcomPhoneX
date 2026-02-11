@@ -37,17 +37,17 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="container py-12">
-      <h1 className="text-4xl font-bold tracking-tight mb-8">Checkout</h1>
+    <div className="container py-8 sm:py-12 px-4 sm:px-6">
+      <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6 sm:mb-8">Checkout</h1>
 
       <form onSubmit={handleSubmit}>
-        <div className="grid gap-8 lg:grid-cols-3">
+        <div className="grid gap-6 sm:gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-6">
             <Card>
-              <CardHeader>
-                <CardTitle>Shipping Information</CardTitle>
+              <CardHeader className="px-4 sm:px-6">
+                <CardTitle className="text-base sm:text-lg">Shipping Information</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-4 px-4 sm:px-6 pb-6">
                 <Input
                   type="email"
                   placeholder="Email"
@@ -115,10 +115,10 @@ export default function CheckoutPage() {
 
           <div className="lg:col-span-1">
             <Card>
-              <CardHeader>
-                <CardTitle>Order Summary</CardTitle>
+              <CardHeader className="px-4 sm:px-6">
+                <CardTitle className="text-base sm:text-lg">Order Summary</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-4 px-4 sm:px-6 pb-6">
                 <div className="space-y-2">
                   {items.map((item) => (
                     <div key={item.variantId} className="flex justify-between text-sm">

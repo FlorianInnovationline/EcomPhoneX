@@ -1,66 +1,93 @@
 "use client"
 
+import { useState } from "react"
 import { Link } from "@/i18n/routing"
 import { useTranslations } from "next-intl"
-import { ShoppingCart } from "lucide-react"
+import { ShoppingCart, Menu, X } from "lucide-react"
 import { useCartStore } from "@/lib/store/cart-store"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { LanguageToggle } from "./language-toggle"
+import { cn } from "@/lib/utils"
+
+const navLinks = [
+  { href: "/shop", key: "shop" },
+  { href: "/collections", key: "collections" },
+  { href: "/compare", key: "compare" },
+  { href: "/support", key: "support" },
+] as const
 
 export function Navbar() {
   const t = useTranslations("nav")
   const itemCount = useCartStore((state) => state.getItemCount())
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2">
-          <span className="text-xl font-semibold tracking-tight">Xeno Mobile</span>
+      <div className="container flex h-14 sm:h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link href="/" className="flex items-center space-x-2 shrink-0" onClick={() => setMobileOpen(false)}>
+          <span className="text-lg sm:text-xl font-semibold tracking-tight">Xeno Mobile</span>
         </Link>
 
+        {/* Desktop nav */}
         <div className="hidden md:flex items-center space-x-6">
-          <Link
-            href="/shop"
-            className="text-sm font-light transition-colors hover:text-foreground/80 text-foreground/60"
-          >
-            {t("shop")}
-          </Link>
-          <Link
-            href="/collections"
-            className="text-sm font-light transition-colors hover:text-foreground/80 text-foreground/60"
-          >
-            {t("collections")}
-          </Link>
-          <Link
-            href="/compare"
-            className="text-sm font-light transition-colors hover:text-foreground/80 text-foreground/60"
-          >
-            {t("compare")}
-          </Link>
-          <Link
-            href="/support"
-            className="text-sm font-light transition-colors hover:text-foreground/80 text-foreground/60"
-          >
-            {t("support")}
-          </Link>
+          {navLinks.map(({ href, key }) => (
+            <Link
+              key={key}
+              href={href}
+              className="text-sm font-light transition-colors hover:text-foreground/80 text-foreground/60"
+            >
+              {t(key)}
+            </Link>
+          ))}
         </div>
 
-        <div className="flex items-center space-x-4">
+        {/* Right: lang + cart (and hamburger on mobile) */}
+        <div className="flex items-center gap-2 sm:gap-4">
           <LanguageToggle />
-          <Link href="/cart">
-            <Button variant="ghost" size="icon" className="relative">
+          <Link href="/cart" className="flex items-center">
+            <Button variant="ghost" size="icon" className="relative h-10 w-10 sm:h-11 sm:w-11 rounded-full">
               <ShoppingCart className="h-5 w-5" />
               {itemCount > 0 && (
                 <Badge
                   variant="destructive"
-                  className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-xs"
+                  className="absolute -top-0.5 -right-0.5 h-5 min-w-[20px] flex items-center justify-center px-1 text-xs"
                 >
                   {itemCount}
                 </Badge>
               )}
             </Button>
           </Link>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden h-10 w-10 rounded-full"
+            onClick={() => setMobileOpen((o) => !o)}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          >
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </Button>
+        </div>
+      </div>
+
+      {/* Mobile menu */}
+      <div
+        className={cn(
+          "md:hidden border-t bg-background overflow-hidden transition-all duration-200 ease-out",
+          mobileOpen ? "max-h-[280px] opacity-100" : "max-h-0 opacity-0 border-transparent"
+        )}
+      >
+        <div className="container px-4 py-4 space-y-1">
+          {navLinks.map(({ href, key }) => (
+            <Link
+              key={key}
+              href={href}
+              className="flex items-center min-h-[44px] px-3 rounded-lg text-sm font-light text-foreground/80 hover:bg-muted/50 hover:text-foreground transition-colors"
+              onClick={() => setMobileOpen(false)}
+            >
+              {t(key)}
+            </Link>
+          ))}
         </div>
       </div>
     </nav>

@@ -47,11 +47,11 @@ export function SectionHeader({ title, subtitle, align = "center", className }: 
       transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
       className={cn("mb-12 sm:mb-16", alignments[align], className)}
     >
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light tracking-tight mb-4">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light tracking-tight mb-3 sm:mb-4">
         {title}
       </h2>
       {subtitle && (
-        <p className="text-muted-foreground/80 text-lg font-light max-w-2xl">
+        <p className="text-muted-foreground/80 text-base sm:text-lg font-light max-w-2xl mx-auto md:mx-0">
           {subtitle}
         </p>
       )}

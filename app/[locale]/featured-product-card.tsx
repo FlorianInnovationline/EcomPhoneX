@@ -51,7 +51,7 @@ export function FeaturedProductCard({ product, index }: FeaturedProductCardProps
           <div className="text-xs text-muted-foreground/60 font-light uppercase tracking-wider">
             {product.brand}
           </div>
-          <h3 className="text-xl sm:text-2xl font-light tracking-tight group-hover:text-foreground/80 transition-colors">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-light tracking-tight group-hover:text-foreground/80 transition-colors line-clamp-2">
             {product.name}
           </h3>
           <div className="flex items-center justify-center gap-3">

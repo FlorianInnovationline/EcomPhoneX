@@ -38,14 +38,14 @@ export function HeroSection() {
   return (
     <section 
       ref={heroRef}
-      className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-background via-background to-muted/20"
+      className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-background via-background to-muted/20"
     >
       {/* Subtle gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 pointer-events-none" />
       
-      <div className="container relative z-10 px-4 h-full">
-        {/* Creative Layout: Phone centered with text positioned around it */}
-        <div className="relative flex items-center justify-center h-full py-2 sm:py-4 lg:py-6">
+      <div className="container relative z-10 px-4 h-full flex flex-col md:block">
+        {/* Creative Layout: On mobile stack; on md+ phone centered with text around */}
+        <div className="relative flex flex-col md:flex-row items-center justify-center min-h-0 flex-1 md:flex-none h-full py-6 sm:py-8 md:py-4 lg:py-6">
           
           {/* Phone Image - Centered */}
           <motion.div
@@ -76,7 +76,7 @@ export function HeroSection() {
               stiffness: 100,
               damping: 20
             }}
-            className="relative z-20 flex items-center justify-center w-full max-w-[240px] sm:max-w-[280px] md:max-w-sm lg:max-w-md"
+            className="relative z-20 flex items-center justify-center w-full max-w-[200px] xs:max-w-[240px] sm:max-w-[280px] md:max-w-sm lg:max-w-md shrink-0"
           >
             <motion.div 
               className="relative w-full aspect-[9/16]"
@@ -101,9 +101,9 @@ export function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Text Content - Positioned around phone */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            {/* Left Side Text - Bottom Left - Modern & Smooth */}
+          {/* Text Content - On mobile: below phone (in flow); on md+: absolute around phone */}
+          <div className="relative md:absolute md:inset-0 flex flex-col md:flex-none items-center justify-center pointer-events-none md:contents">
+            {/* Left Side Text - Below phone on mobile; bottom-left on desktop */}
             <motion.div
               style={{
                 y: textY,
@@ -116,7 +116,7 @@ export function HeroSection() {
                 delay: 0.3,
                 ease: [0.19, 1, 0.22, 1]
               }}
-              className="absolute left-0 lg:left-6 xl:left-12 bottom-12 sm:bottom-16 lg:bottom-20 xl:bottom-24 text-left max-w-[260px] sm:max-w-[320px] md:max-w-sm lg:max-w-md pointer-events-auto"
+              className="relative md:absolute left-0 lg:left-6 xl:left-12 md:bottom-12 lg:bottom-20 xl:bottom-24 text-center md:text-left max-w-[320px] sm:max-w-[360px] md:max-w-sm lg:max-w-md pointer-events-auto mt-4 md:mt-0 px-4"
             >
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -155,9 +155,24 @@ export function HeroSection() {
               >
                 {t("subtitle")}
               </motion.p>
+              {/* Mobile CTA - visible only on small screens */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+                className="md:hidden mt-6"
+              >
+                <Button
+                  size="lg"
+                  onClick={() => router.push("/shop")}
+                  className="w-full sm:w-auto text-sm sm:text-base px-8 py-4 bg-foreground text-background hover:bg-foreground/90 rounded-full font-light tracking-wide"
+                >
+                  {t("cta")}
+                </Button>
+              </motion.div>
             </motion.div>
 
-            {/* Right Side CTA + Visual Elements - Top Right - Ultra Modern & Smooth */}
+            {/* Right Side CTA + Visual Elements - Hidden on small screens; top-right on md+ */}
             <motion.div
               style={{
                 y: textY,
@@ -170,7 +185,7 @@ export function HeroSection() {
                 delay: 0.3,
                 ease: [0.19, 1, 0.22, 1]
               }}
-              className="absolute right-0 lg:right-6 xl:right-12 top-8 sm:top-10 lg:top-12 xl:top-16 text-right pointer-events-auto"
+              className="hidden md:block absolute right-0 lg:right-6 xl:right-12 top-8 lg:top-12 xl:top-16 text-right pointer-events-auto"
             >
               {/* Ultra Minimal Badges - Elegant */}
               <motion.div

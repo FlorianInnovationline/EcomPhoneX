@@ -59,11 +59,11 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
   }
 
   return (
-    <div className="container py-12">
-      <div className="grid gap-12 lg:grid-cols-2">
+    <div className="container py-8 sm:py-12 px-4 sm:px-6">
+      <div className="grid gap-8 sm:gap-12 lg:grid-cols-2">
         {/* Image Gallery */}
         <div className="space-y-4">
-          <div className="aspect-square relative bg-gradient-to-br from-muted/30 to-muted/50 rounded-2xl overflow-hidden flex items-center justify-center p-8 sm:p-12">
+          <div className="aspect-square relative bg-gradient-to-br from-muted/30 to-muted/50 rounded-xl sm:rounded-2xl overflow-hidden flex items-center justify-center p-6 sm:p-12">
             <Image
               src={product.images[0]?.url || '/images/placeholders/phone1.png'}
               alt={product.images[0]?.alt || product.name}
@@ -78,17 +78,17 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
         {/* Product Info */}
         <div className="space-y-6">
           <div>
-            <h1 className="text-4xl font-bold tracking-tight mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3 sm:mb-4">
               {product.name}
             </h1>
-            <p className="text-muted-foreground text-lg">
+            <p className="text-muted-foreground text-base sm:text-lg">
               {product.description}
             </p>
           </div>
 
           <div className="space-y-4">
             <div>
-              <p className="text-3xl font-bold">{formatPrice(selectedVariant.price)}</p>
+              <p className="text-2xl sm:text-3xl font-bold">{formatPrice(selectedVariant.price)}</p>
             </div>
 
             {/* Variant Selection */}
@@ -97,7 +97,7 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
                 <label className="text-sm font-medium mb-2 block">
                   {t("storage")}
                 </label>
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2">
                   {product.variants
                     .filter((v) => v.color === selectedVariant.color)
                     .map((variant) => (
@@ -126,7 +126,7 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
                 <label className="text-sm font-medium mb-2 block">
                   {t("color")}
                 </label>
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2">
                   {Array.from(new Set(product.variants.map((v) => v.color))).map(
                     (color) => (
                       <Button
@@ -168,8 +168,8 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
 
           {/* Specs */}
           <Card>
-            <CardContent className="p-6">
-              <h3 className="font-semibold mb-4">{t("specs")}</h3>
+            <CardContent className="p-4 sm:p-6">
+              <h3 className="font-semibold mb-4 text-sm sm:text-base">{t("specs")}</h3>
               <dl className="space-y-2">
                 {Object.entries(product.specs).map(([key, value]) => (
                   <div key={key} className="flex justify-between">

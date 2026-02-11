@@ -17,7 +17,7 @@ interface SupportCardsProps {
 
 export function SupportCards({ cards, className }: SupportCardsProps) {
   return (
-    <div className={cn("grid sm:grid-cols-2 lg:grid-cols-3 gap-6", className)}>
+    <div className={cn("grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6", className)}>
       {cards.map((card, index) => (
         <motion.div
           key={card.href}
@@ -29,9 +29,9 @@ export function SupportCards({ cards, className }: SupportCardsProps) {
         >
           <Link
             href={card.href}
-            className="block p-8 rounded-2xl border border-border/50 bg-background hover:border-border transition-all duration-300 group"
+            className="block p-6 sm:p-8 rounded-xl sm:rounded-2xl border border-border/50 bg-background hover:border-border transition-all duration-300 group min-h-[120px] sm:min-h-0"
           >
-            <h3 className="text-xl font-light mb-3 group-hover:text-foreground/80 transition-colors">
+            <h3 className="text-lg sm:text-xl font-light mb-2 sm:mb-3 group-hover:text-foreground/80 transition-colors">
               {card.title}
             </h3>
             <p className="text-sm text-muted-foreground/80 font-light leading-relaxed">

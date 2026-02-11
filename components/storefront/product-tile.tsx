@@ -52,7 +52,7 @@ export function ProductTile({ product, className, priority = false }: ProductTil
           <div className="text-xs text-muted-foreground/60 font-light uppercase tracking-wider">
             {product.brand}
           </div>
-          <h3 className="text-xl font-light tracking-tight group-hover:text-foreground/80 transition-colors">
+          <h3 className="text-base sm:text-lg md:text-xl font-light tracking-tight group-hover:text-foreground/80 transition-colors line-clamp-2">
             {product.name}
           </h3>
           <div className="flex items-center gap-3">

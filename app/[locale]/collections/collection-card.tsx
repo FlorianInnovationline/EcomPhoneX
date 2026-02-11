@@ -51,7 +51,7 @@ export function CollectionCard({ collection, products, index }: CollectionCardPr
       </Link>
 
       {products.length > 0 && (
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
           {products.slice(0, 3).map((product) => (
             <ProductTile key={product.id} product={product} />
           ))}

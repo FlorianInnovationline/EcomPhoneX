@@ -41,10 +41,10 @@ export function CompareTable({ products, onRemove, maxProducts = 3 }: CompareTab
   const maxPrice = Math.max(...allPrices)
 
   return (
-    <div className="overflow-x-auto">
-      <div className="min-w-full" style={{ "--cols": products.length } as React.CSSProperties}>
+    <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+      <div className="min-w-max" style={{ "--cols": products.length, minWidth: `max(100%, ${200 + products.length * 180}px)` } as React.CSSProperties}>
         {/* Header Row */}
-        <div className="grid grid-cols-[200px_repeat(var(--cols),1fr)] gap-4 pb-4 border-b border-border/50">
+        <div className="grid grid-cols-[140px_repeat(var(--cols),minmax(160px,1fr))] sm:grid-cols-[200px_repeat(var(--cols),1fr)] gap-3 sm:gap-4 pb-4 border-b border-border/50">
           <div className="font-light text-sm text-muted-foreground/60 uppercase tracking-wider">
             Specification
           </div>
@@ -80,7 +80,7 @@ export function CompareTable({ products, onRemove, maxProducts = 3 }: CompareTab
         {specKeys.map((specKey) => (
           <div
             key={specKey}
-            className="grid grid-cols-[200px_repeat(var(--cols),1fr)] gap-4 py-4 border-b border-border/30"
+            className="grid grid-cols-[140px_repeat(var(--cols),minmax(160px,1fr))] sm:grid-cols-[200px_repeat(var(--cols),1fr)] gap-3 sm:gap-4 py-4 border-b border-border/30"
           >
             <div className="font-light text-sm text-muted-foreground/80 capitalize">
               {specKey.replace(/([A-Z])/g, " $1").trim()}
@@ -97,7 +97,7 @@ export function CompareTable({ products, onRemove, maxProducts = 3 }: CompareTab
         ))}
 
         {/* Price Row */}
-        <div className="grid grid-cols-[200px_repeat(var(--cols),1fr)] gap-4 py-4 border-b border-border/30">
+        <div className="grid grid-cols-[140px_repeat(var(--cols),minmax(160px,1fr))] sm:grid-cols-[200px_repeat(var(--cols),1fr)] gap-3 sm:gap-4 py-4 border-b border-border/30">
           <div className="font-light text-sm text-muted-foreground/80">Price Range</div>
           {products.map((product) => {
             const prices = product.variants.map(v => v.price)
@@ -115,7 +115,7 @@ export function CompareTable({ products, onRemove, maxProducts = 3 }: CompareTab
         </div>
 
         {/* Storage Options */}
-        <div className="grid grid-cols-[200px_repeat(var(--cols),1fr)] gap-4 py-4 border-b border-border/30">
+        <div className="grid grid-cols-[140px_repeat(var(--cols),minmax(160px,1fr))] sm:grid-cols-[200px_repeat(var(--cols),1fr)] gap-3 sm:gap-4 py-4 border-b border-border/30">
           <div className="font-light text-sm text-muted-foreground/80">Storage Options</div>
           {products.map((product) => {
             const storages = [...new Set(product.variants.map(v => v.storage).filter(Boolean))]
@@ -128,7 +128,7 @@ export function CompareTable({ products, onRemove, maxProducts = 3 }: CompareTab
         </div>
 
         {/* Color Options */}
-        <div className="grid grid-cols-[200px_repeat(var(--cols),1fr)] gap-4 py-4">
+        <div className="grid grid-cols-[140px_repeat(var(--cols),minmax(160px,1fr))] sm:grid-cols-[200px_repeat(var(--cols),1fr)] gap-4 py-4">
           <div className="font-light text-sm text-muted-foreground/80">Color Options</div>
           {products.map((product) => {
             const colors = [...new Set(product.variants.map(v => v.color).filter(Boolean))]

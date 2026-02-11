@@ -7,6 +7,12 @@ import { Footer } from '@/components/storefront/footer'
 import { Toaster } from '@/components/ui/toaster'
 import '../globals.css'
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+}
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }))
 }

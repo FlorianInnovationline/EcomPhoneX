@@ -23,11 +23,11 @@ export default function CartPage() {
 
   if (items.length === 0) {
     return (
-      <div className="container py-12">
+      <div className="container py-10 sm:py-12 px-4 sm:px-6">
         <div className="max-w-2xl mx-auto text-center space-y-4">
-          <h1 className="text-4xl font-bold tracking-tight">{t("title")}</h1>
-          <p className="text-muted-foreground">{t("empty")}</p>
-          <Button asChild>
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">{t("title")}</h1>
+          <p className="text-muted-foreground text-sm sm:text-base">{t("empty")}</p>
+          <Button asChild className="min-h-[44px]">
             <Link href="/shop">{t("continueShopping")}</Link>
           </Button>
         </div>
@@ -36,38 +36,40 @@ export default function CartPage() {
   }
 
   return (
-    <div className="container py-12">
-      <h1 className="text-4xl font-bold tracking-tight mb-8">{t("title")}</h1>
+    <div className="container py-8 sm:py-12 px-4 sm:px-6">
+      <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6 sm:mb-8">{t("title")}</h1>
 
-      <div className="grid gap-8 lg:grid-cols-3">
+      <div className="grid gap-6 sm:gap-8 lg:grid-cols-3">
         <div className="lg:col-span-2 space-y-4">
           {items.map((item) => (
             <Card key={item.variantId}>
-              <CardContent className="p-6">
-                <div className="flex gap-6">
-                  <div className="w-24 h-24 bg-muted rounded-lg flex-shrink-0" />
-                  <div className="flex-1 space-y-2">
-                    <h3 className="font-semibold">{item.productName}</h3>
+              <CardContent className="p-4 sm:p-6">
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                  <div className="w-full sm:w-24 h-40 sm:h-24 bg-muted rounded-lg flex-shrink-0" />
+                  <div className="flex-1 space-y-2 min-w-0">
+                    <h3 className="font-semibold text-base sm:text-lg">{item.productName}</h3>
                     <p className="text-sm text-muted-foreground">
                       {item.variantName}
                     </p>
                     <p className="font-semibold">{formatPrice(item.price)}</p>
                   </div>
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center justify-between sm:justify-end gap-3 flex-wrap">
                     <div className="flex items-center gap-2">
                       <Button
                         variant="outline"
                         size="icon"
+                        className="h-10 w-10 shrink-0"
                         onClick={() =>
                           updateQuantity(item.variantId, item.quantity - 1)
                         }
                       >
                         -
                       </Button>
-                      <span className="w-8 text-center">{item.quantity}</span>
+                      <span className="w-8 text-center text-sm sm:text-base">{item.quantity}</span>
                       <Button
                         variant="outline"
                         size="icon"
+                        className="h-10 w-10 shrink-0"
                         onClick={() =>
                           updateQuantity(item.variantId, item.quantity + 1)
                         }
@@ -78,7 +80,9 @@ export default function CartPage() {
                     <Button
                       variant="ghost"
                       size="icon"
+                      className="h-10 w-10 shrink-0"
                       onClick={() => removeItem(item.variantId)}
+                      aria-label="Remove item"
                     >
                       <Trash2 className="h-4 w-4" />
                     </Button>
@@ -91,7 +95,7 @@ export default function CartPage() {
 
         <div className="lg:col-span-1">
           <Card>
-            <CardContent className="p-6 space-y-4">
+            <CardContent className="p-4 sm:p-6 space-y-4">
               <h2 className="font-semibold text-lg">Order Summary</h2>
               <Separator />
               <div className="space-y-2">

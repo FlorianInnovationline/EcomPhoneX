@@ -15,9 +15,9 @@ export default function AboutPage() {
 
       <Section>
         <div className="container px-4 max-w-4xl">
-          <div className="prose prose-lg max-w-none space-y-8">
-            <div className="space-y-6 text-muted-foreground/80 font-light leading-relaxed">
-              <p className="text-lg">
+          <div className="prose prose-sm sm:prose-base lg:prose-lg max-w-none space-y-6 sm:space-y-8">
+            <div className="space-y-4 sm:space-y-6 text-muted-foreground/80 font-light leading-relaxed">
+              <p className="text-base sm:text-lg">
                 We are dedicated to bringing you the finest selection of premium smartphones, 
                 starting with Xiaomi's flagship devices. Our mission is to provide exceptional 
                 service, genuine products, and a seamless shopping experience.
