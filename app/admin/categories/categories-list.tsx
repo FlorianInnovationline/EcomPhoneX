@@ -6,14 +6,25 @@ import { Button } from "@/components/ui/button"
 import { Plus, Edit, Trash2 } from "lucide-react"
 import { motion } from "framer-motion"
 
+/** Flat shape Prisma returns for parent/children (no nested relations) */
+interface CategoryFlat {
+  id: string
+  name: string
+  slug: string
+  description: string | null
+  parentId: string | null
+  isActive: boolean
+  sortOrder: number
+}
+
 interface Category {
   id: string
   name: string
   slug: string
   description: string | null
   parentId: string | null
-  parent: Category | null
-  children: Category[]
+  parent: CategoryFlat | null
+  children: CategoryFlat[]
   isActive: boolean
   sortOrder: number
   _count?: { products: number }

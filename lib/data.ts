@@ -3,13 +3,15 @@
 // Now uses Prisma to read from database
 
 import { Order } from './types'
+import type { Deal } from './data/deals'
 import * as dbProducts from './db/products'
 import * as dbCategories from './db/categories'
 import * as dbCollections from './db/collections'
 import { prisma } from './prisma'
 
 // Re-export types
-export type { Review, Collection } from './types'
+export type { Review } from './data/reviews'
+export type { Collection } from './data/collections'
 
 // ============================================================================
 // PRODUCTS
@@ -323,7 +325,7 @@ export async function getCollectionBySlug(slug: string) {
 // DEALS (Mock for now)
 // ============================================================================
 
-export async function getDeals() {
+export async function getDeals(): Promise<Deal[]> {
   // TODO: Implement deals in database
   return []
 }

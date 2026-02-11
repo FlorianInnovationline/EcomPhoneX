@@ -12,7 +12,7 @@ import { formatPrice } from "@/lib/utils"
 export default function CheckoutPage() {
   const t = useTranslations("cart")
   const items = useCartStore((state) => state.items)
-  const getTotal = useCartStore((state) => state.getTotal())
+  const getTotal = useCartStore((state) => state.getTotal)
   const [formData, setFormData] = useState({
     email: "",
     firstName: "",
