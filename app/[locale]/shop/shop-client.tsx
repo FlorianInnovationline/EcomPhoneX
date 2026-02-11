@@ -125,7 +125,9 @@ export function ShopClient({ products, searchQuery, categorySlug }: ShopClientPr
                 const hasDiscount = product.variants.some(
                   v => v.compareAtPrice && v.compareAtPrice > v.price
                 )
-                const imageUrl = '/images/placeholders/phone1.png'
+                const mainImage = product.images[0]
+                const imageUrl = mainImage?.url || '/images/placeholders/phone1.png'
+                const imageAlt = mainImage?.alt || product.name
 
                 return (
                   <Link 
@@ -142,7 +144,7 @@ export function ShopClient({ products, searchQuery, categorySlug }: ShopClientPr
                       <div className="relative aspect-square overflow-hidden bg-muted/20 flex items-center justify-center p-6 sm:p-8">
                         <Image
                           src={imageUrl}
-                          alt={product.name}
+                          alt={imageAlt}
                           fill
                           className="object-contain transition-transform duration-300 group-hover:scale-[1.02]"
                           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"

@@ -16,8 +16,9 @@ export function FeaturedProductCard({ product, index }: FeaturedProductCardProps
   const lowestPrice = Math.min(...product.variants.map(v => v.price))
   const hasDiscount = product.variants.some(v => v.compareAtPrice && v.compareAtPrice > v.price)
 
-  // Use the same image for all featured products
-  const imageSrc = '/images/placeholders/phone1.png'
+  const mainImage = product.images[0]
+  const imageSrc = mainImage?.url || '/images/placeholders/phone1.png'
+  const imageAlt = mainImage?.alt || product.name
 
   return (
     <motion.div
@@ -34,7 +35,7 @@ export function FeaturedProductCard({ product, index }: FeaturedProductCardProps
           <div className="absolute inset-0 flex items-center justify-center p-6 sm:p-8">
             <Image
               src={imageSrc}
-              alt={product.name}
+              alt={imageAlt}
               fill
               className="object-contain"
               priority={index === 0}
