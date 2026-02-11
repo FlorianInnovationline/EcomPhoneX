@@ -63,7 +63,7 @@ export default async function LocaleLayout({
     <NextIntlClientProvider locale={locale} messages={messages}>
       <div className="flex min-h-screen flex-col min-w-0 max-w-[100vw] overflow-x-hidden">
         <Navbar />
-        <main className="flex-1 min-w-0 w-full overflow-x-hidden min-h-0">{children}</main>
+        <main className="flex-1 min-w-0 w-full overflow-x-hidden overflow-y-auto min-h-0">{children}</main>
         <Footer />
       </div>
       <Toaster />
