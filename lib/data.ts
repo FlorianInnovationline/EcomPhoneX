@@ -22,6 +22,8 @@ export interface ProductFilters {
   brand?: string
   search?: string
   collectionId?: string
+  categoryId?: string
+  categorySlug?: string
   status?: 'DRAFT' | 'PUBLISHED' | 'ARCHIVED'
 }
 
@@ -44,6 +46,27 @@ export async function getProducts(filters?: ProductFilters) {
 
   if (filters?.collectionId) {
     dbFilters.collectionId = filters.collectionId
+  }
+
+  if (filters?.categoryId) {
+    dbFilters.categoryId = filters.categoryId
+  } else if (filters?.categorySlug) {
+    const cat = await dbCategories.getCategoryBySlug(filters.categorySlug)
+    if (cat) {
+      const all = await dbCategories.getCategories(true)
+      const descendantIds = new Set<string>([cat.id])
+      let added = true
+      while (added) {
+        added = false
+        for (const c of all) {
+          if (c.parentId && descendantIds.has(c.parentId) && !descendantIds.has(c.id)) {
+            descendantIds.add(c.id)
+            added = true
+          }
+        }
+      }
+      dbFilters.categoryIds = Array.from(descendantIds)
+    }
   }
 
   const products = await dbProducts.getProducts(dbFilters)
@@ -319,6 +342,112 @@ export async function getCollectionBySlug(slug: string) {
     createdAt: collection.createdAt,
     updatedAt: collection.updatedAt,
   }
+}
+
+// ============================================================================
+// CATEGORIES (for Lifestyle / grouping)
+// ============================================================================
+
+export interface CategoryFlat {
+  id: string
+  name: string
+  slug: string
+  parentId: string | null
+  sortOrder: number
+}
+
+export async function getCategoriesFlat(): Promise<CategoryFlat[]> {
+  const list = await dbCategories.getCategories(true)
+  return list.map((c: { id: string; name: string; slug: string; parentId: string | null; sortOrder: number }) => ({
+    id: c.id,
+    name: c.name,
+    slug: c.slug,
+    parentId: c.parentId,
+    sortOrder: c.sortOrder ?? 0,
+  }))
+}
+
+export interface ProductWithCategory {
+  id: string
+  slug: string
+  brand: string
+  name: string
+  description: string | null
+  specs: Record<string, unknown>
+  active: boolean
+  variants: Array<{
+    id: string
+    productId: string
+    sku: string
+    color: string | null
+    storage: string | null
+    price: number
+    compareAtPrice: number | null
+    cost: number | null
+    inventory: number
+    weight: number | null
+    active: boolean
+    createdAt: Date
+    updatedAt: Date
+  }>
+  images: Array<{
+    id: string
+    productId: string
+    url: string
+    alt: string | null
+    sort: number
+    createdAt: Date
+  }>
+  createdAt: Date
+  updatedAt: Date
+  primaryCategory: { id: string; name: string; slug: string; parentId: string | null } | null
+}
+
+export async function getProductsWithPrimaryCategory(): Promise<ProductWithCategory[]> {
+  const products = await dbProducts.getProducts({ status: 'PUBLISHED' })
+  return products.map((p: any) => ({
+    id: p.id,
+    slug: p.slug,
+    brand: p.brand,
+    name: p.title,
+    description: p.description,
+    specs: p.specs.reduce((acc: any, spec: any) => {
+      if (!acc[spec.group || 'General']) acc[spec.group || 'General'] = {}
+      acc[spec.group || 'General'][spec.key] = spec.value
+      return acc
+    }, {}),
+    active: p.status === 'PUBLISHED',
+    variants: p.variants.map((v: any) => ({
+      id: v.id,
+      productId: v.productId,
+      sku: v.sku,
+      color: v.attributes?.color ?? null,
+      storage: v.attributes?.storage ?? null,
+      price: Number(v.price),
+      compareAtPrice: v.compareAtPrice ? Number(v.compareAtPrice) : null,
+      cost: v.cost ? Number(v.cost) : null,
+      inventory: v.inventoryQty,
+      weight: v.weight,
+      active: v.active,
+      createdAt: v.createdAt,
+      updatedAt: v.updatedAt,
+    })),
+    images: p.images?.length > 0
+      ? p.images.map((img: any) => ({
+          id: img.id,
+          productId: img.productId,
+          url: img.url || '/images/placeholders/phone1.png',
+          alt: img.alt,
+          sort: img.sortOrder,
+          createdAt: img.createdAt,
+        }))
+      : [{ id: 'placeholder', productId: p.id, url: '/images/placeholders/phone1.png', alt: p.title, sort: 0, createdAt: new Date() }],
+    createdAt: p.createdAt,
+    updatedAt: p.updatedAt,
+    primaryCategory: p.primaryCategory
+      ? { id: p.primaryCategory.id, name: p.primaryCategory.name, slug: p.primaryCategory.slug, parentId: p.primaryCategory.parentId }
+      : null,
+  }))
 }
 
 // ============================================================================

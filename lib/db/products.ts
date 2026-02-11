@@ -4,6 +4,7 @@ import { ProductStatus } from '@prisma/client'
 export interface ProductFilters {
   status?: ProductStatus
   categoryId?: string
+  categoryIds?: string[]
   brand?: string
   search?: string
   isFeatured?: boolean
@@ -27,19 +28,37 @@ export async function getProducts(filters?: ProductFilters) {
     where.isFeatured = filters.isFeatured
   }
 
-  if (filters?.search) {
-    where.OR = [
-      { title: { contains: filters.search, mode: 'insensitive' } },
-      { slug: { contains: filters.search, mode: 'insensitive' } },
-      { brand: { contains: filters.search, mode: 'insensitive' } },
-    ]
-  }
+  const searchClause =
+    filters?.search
+      ? [
+          { title: { contains: filters.search, mode: 'insensitive' as const } },
+          { slug: { contains: filters.search, mode: 'insensitive' as const } },
+          { brand: { contains: filters.search, mode: 'insensitive' as const } },
+        ]
+      : null
 
-  if (filters?.categoryId) {
-    where.OR = [
-      { primaryCategoryId: filters.categoryId },
-      { categories: { some: { categoryId: filters.categoryId } } },
+  const categoryClause =
+    filters?.categoryIds?.length
+      ? [
+          { primaryCategoryId: { in: filters.categoryIds } },
+          { categories: { some: { categoryId: { in: filters.categoryIds } } } },
+        ]
+      : filters?.categoryId
+        ? [
+            { primaryCategoryId: filters.categoryId },
+            { categories: { some: { categoryId: filters.categoryId } } },
+          ]
+        : null
+
+  if (searchClause && categoryClause) {
+    where.AND = [
+      { OR: searchClause },
+      { OR: categoryClause },
     ]
+  } else if (searchClause) {
+    where.OR = searchClause
+  } else if (categoryClause) {
+    where.OR = categoryClause
   }
 
   if (filters?.inventoryLow) {

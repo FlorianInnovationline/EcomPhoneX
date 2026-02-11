@@ -14,9 +14,10 @@ import { useTranslations } from "next-intl"
 interface ShopClientProps {
   products: Product[]
   searchQuery?: string
+  categorySlug?: string
 }
 
-export function ShopClient({ products, searchQuery }: ShopClientProps) {
+export function ShopClient({ products, searchQuery, categorySlug }: ShopClientProps) {
   const t = useTranslations("shop")
   const router = useRouter()
   const searchParams = useSearchParams()

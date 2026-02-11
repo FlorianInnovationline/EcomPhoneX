@@ -4,13 +4,14 @@ import { ShopClient } from "./shop-client"
 export default async function ShopPage({
   searchParams,
 }: {
-  searchParams: Promise<{ search?: string }>
+  searchParams: Promise<{ search?: string; category?: string }>
 }) {
   const params = await searchParams
   const products = await getProducts({
     active: true,
     search: params.search,
+    categorySlug: params.category || undefined,
   })
 
-  return <ShopClient products={products} searchQuery={params.search} />
+  return <ShopClient products={products} searchQuery={params.search} categorySlug={params.category} />
 }

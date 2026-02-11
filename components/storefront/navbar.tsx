@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Link } from "@/i18n/routing"
 import { useTranslations } from "next-intl"
+import { usePathname } from "next/navigation"
 import { ShoppingCart, Menu, X } from "lucide-react"
 import { useCartStore } from "@/lib/store/cart-store"
 import { Button } from "@/components/ui/button"
@@ -13,12 +14,14 @@ import { cn } from "@/lib/utils"
 const navLinks = [
   { href: "/shop", key: "shop" },
   { href: "/collections", key: "collections" },
+  { href: "/lifestyle", key: "lifestyle" },
   { href: "/compare", key: "compare" },
   { href: "/support", key: "support" },
 ] as const
 
 export function Navbar() {
   const t = useTranslations("nav")
+  const pathname = usePathname()
   const itemCount = useCartStore((state) => state.getItemCount())
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -31,15 +34,21 @@ export function Navbar() {
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center space-x-6">
-          {navLinks.map(({ href, key }) => (
-            <Link
-              key={key}
-              href={href}
-              className="text-sm font-light transition-colors hover:text-foreground/80 text-foreground/60"
-            >
-              {t(key)}
-            </Link>
-          ))}
+          {navLinks.map(({ href, key }) => {
+            const isActive = pathname === href || pathname.endsWith(href) || pathname.includes(href + "?")
+            return (
+              <Link
+                key={key}
+                href={href}
+                className={cn(
+                  "text-sm font-light transition-colors hover:text-foreground/80",
+                  isActive ? "text-foreground" : "text-foreground/60"
+                )}
+              >
+                {t(key)}
+              </Link>
+            )
+          })}
         </div>
 
         {/* Right: lang + cart (and hamburger on mobile) */}
@@ -78,16 +87,22 @@ export function Navbar() {
         )}
       >
         <div className="container px-4 py-4 space-y-1">
-          {navLinks.map(({ href, key }) => (
-            <Link
-              key={key}
-              href={href}
-              className="flex items-center min-h-[44px] px-3 rounded-lg text-sm font-light text-foreground/80 hover:bg-muted/50 hover:text-foreground transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              {t(key)}
-            </Link>
-          ))}
+          {navLinks.map(({ href, key }) => {
+            const isActive = pathname === href || pathname.endsWith(href) || pathname.includes(href + "?")
+            return (
+              <Link
+                key={key}
+                href={href}
+                className={cn(
+                  "flex items-center min-h-[44px] px-3 rounded-lg text-sm font-light transition-colors hover:bg-muted/50 hover:text-foreground",
+                  isActive ? "text-foreground bg-muted/30" : "text-foreground/80"
+                )}
+                onClick={() => setMobileOpen(false)}
+              >
+                {t(key)}
+              </Link>
+            )
+          })}
         </div>
       </div>
     </nav>

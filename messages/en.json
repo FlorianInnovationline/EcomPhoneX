@@ -24,6 +24,7 @@
     "home": "Home",
     "shop": "Shop",
     "collections": "Collections",
+    "lifestyle": "Lifestyle",
     "compare": "Compare",
     "support": "Support",
     "shipping": "Shipping",
@@ -44,6 +45,18 @@
     "title": "Collections",
     "subtitle": "Curated selections of our finest devices",
     "noProducts": "No products in this collection yet."
+  },
+  "lifestyle": {
+    "title": "Lifestyle",
+    "subtitle": "Discover tech for every moment — phones, wearables, audio, and more.",
+    "breadcrumb": "Explore",
+    "all": "All",
+    "viewAll": "Explore all",
+    "category_phones": "Phones",
+    "category_watches": "Watches",
+    "category_vr_glasses": "VR Glasses",
+    "category_audio": "Audio",
+    "category_accessories": "Accessories"
   },
   "compare": {
     "title": "Compare Products",
