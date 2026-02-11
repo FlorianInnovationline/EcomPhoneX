@@ -56,8 +56,12 @@
     "category_phones": "Telemóveis",
     "category_watches": "Relógios",
     "category_vr_glasses": "Óculos VR",
+    "category_earbuds": "Auscultadores",
+    "category_lifestyle": "Lifestyle",
     "category_audio": "Áudio",
-    "category_accessories": "Acessórios"
+    "category_accessories": "Acessórios",
+    "categoriesCount": "{count} categorias",
+    "productsCount": "{count} produtos"
   },
   "compare": {
     "title": "Comparar Produtos",

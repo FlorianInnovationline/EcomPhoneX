@@ -29,9 +29,19 @@
   * {
     @apply border-border;
   }
+  html {
+    overflow-x: hidden;
+    width: 100%;
+  }
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    /* Prevent pull-to-refresh overscroll on mobile where it can feel janky */
+    overscroll-behavior-y: contain;
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
@@ -46,5 +56,18 @@
   }
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+  /* Safe area insets for notched devices (iOS, Android) — use with pt-[env(...)] or pb-[env(...)] */
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .safe-left {
+    padding-left: env(safe-area-inset-left, 0px);
+  }
+  .safe-right {
+    padding-right: env(safe-area-inset-right, 0px);
   }
 }

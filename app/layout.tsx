@@ -4,6 +4,8 @@ import "./globals.css"
 export const metadata: Metadata = {
   title: "Xeno Mobile - Premium Smartphones",
   description: "Premium smartphones, delivered with care",
+  manifest: "/manifest.json",
+  themeColor: "#0a0a0a",
 }
 
 // Root layout - required by Next.js but locale routes use [locale]/layout.tsx
@@ -16,8 +18,8 @@ export default function RootLayout({
   // Locale routes use app/[locale]/layout.tsx which has its own html/body
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
-        {children}
+      <body className="min-w-0 overflow-x-hidden w-full">
+        <div className="min-w-0 max-w-[100vw] overflow-x-hidden">{children}</div>
       </body>
     </html>
   )

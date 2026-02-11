@@ -45,7 +45,7 @@ export function LifestyleProductCard({
       whileInView={reducedMotion ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-24px" }}
       transition={{ duration: 0.35, delay: index * 0.04, ease: [0.19, 1, 0.22, 1] }}
-      className="group flex flex-col h-full bg-card border border-border/50 rounded-xl sm:rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
+      className="group flex flex-col h-full min-w-0 bg-card border border-border/50 rounded-xl sm:rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
     >
       <div className="relative flex flex-col flex-1 p-4 sm:p-5">
         {/* Discount badge - top left, orange-style */}

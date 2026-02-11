@@ -26,8 +26,8 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 sm:h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+    <nav className="sticky top-0 z-50 w-full min-w-0 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 safe-top">
+      <div className="container flex h-14 sm:h-16 items-center justify-between px-4 sm:px-6 lg:px-8 min-w-0 max-w-[100vw]">
         <Link href="/" className="flex items-center space-x-2 shrink-0" onClick={() => setMobileOpen(false)}>
           <span className="text-lg sm:text-xl font-semibold tracking-tight">Xeno Mobile</span>
         </Link>
