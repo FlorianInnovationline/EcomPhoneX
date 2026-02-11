@@ -29,18 +29,21 @@
   * {
     @apply border-border;
   }
+  /* Normal scroll on all devices: only hide horizontal overflow, never block vertical */
   html {
     overflow-x: hidden;
+    overflow-y: auto;
     width: 100%;
+    -webkit-overflow-scrolling: touch;
   }
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
     overflow-x: hidden;
+    overflow-y: visible;
     width: 100%;
     position: relative;
-    /* Prevent pull-to-refresh overscroll on mobile where it can feel janky */
-    overscroll-behavior-y: contain;
+    min-height: 100%;
     -webkit-tap-highlight-color: transparent;
   }
 }
