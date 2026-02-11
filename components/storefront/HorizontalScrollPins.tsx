@@ -166,41 +166,38 @@ export function HorizontalScrollPins() {
     },
   ]
 
-  // Mobile: Vertical stacked cards
+  // Mobile: Compact grid – clean, low height, no long scroll
   if (isMobile) {
     return (
-      <section className="py-24 border-t bg-gradient-to-b from-background to-muted/10">
-        <div className="container">
-          <div className="space-y-4 text-center mb-12">
-            <h2 className="text-4xl sm:text-5xl font-light tracking-tight">
+      <section className="py-10 sm:py-12 border-t bg-gradient-to-b from-background to-muted/10">
+        <div className="container px-4">
+          <div className="text-center mb-6 sm:mb-8">
+            <h2 className="text-2xl sm:text-3xl font-light tracking-tight">
               {t("title")}
             </h2>
-            <p className="text-muted-foreground/80 max-w-2xl mx-auto text-lg font-light">
+            <p className="text-muted-foreground/80 mt-1.5 text-sm font-light max-w-md mx-auto">
               {t("subtitle")}
             </p>
           </div>
-          
-          <div className="space-y-6">
+
+          <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
             {features.map((feature) => (
               <div
                 key={feature.key}
                 className={`
-                  relative h-[400px] rounded-3xl overflow-hidden
+                  relative rounded-xl sm:rounded-2xl overflow-hidden
                   bg-gradient-to-br ${feature.gradient}
-                  border border-border/50 backdrop-blur-sm
-                  shadow-lg
+                  border border-border/40
+                  p-3.5 sm:p-4
+                  min-h-0
                 `}
               >
-                <div className="relative h-full p-8 flex flex-col justify-between">
-                  <div className="space-y-4">
-                    <h3 className="text-2xl font-light tracking-tight text-foreground">
-                      {feature.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground/80 font-light leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
-                </div>
+                <h3 className="text-[13px] sm:text-sm font-medium tracking-tight text-foreground leading-tight">
+                  {feature.title}
+                </h3>
+                <p className="text-[11px] sm:text-xs text-muted-foreground/80 font-light leading-snug mt-1 line-clamp-2">
+                  {feature.description}
+                </p>
               </div>
             ))}
           </div>
