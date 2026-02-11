@@ -14,11 +14,11 @@ export const authOptions: NextAuthOptions = {
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) {
+        if (!credentials?.email) {
           return null
         }
 
-        // For now, allow admin login with email only (no password check)
+        // For now, allow admin/staff login with email only (no password check)
         // In production, you should store hashed passwords in a separate table
         const user = await prisma.user.findUnique({
           where: { email: credentials.email },

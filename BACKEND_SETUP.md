@@ -160,10 +160,10 @@ The storefront now reads from the database:
 
 ## Production Deployment
 
-1. **Set environment variables in Vercel:**
-   - `DATABASE_URL`
-   - `NEXTAUTH_URL` (your production URL)
-   - `NEXTAUTH_SECRET`
+1. **Set environment variables in Vercel** (Project → Settings → Environment Variables):
+   - `DATABASE_URL` – your Neon connection string
+   - `NEXTAUTH_URL` – **must be your exact Vercel URL**, e.g. `https://ecomphonex.vercel.app` (no trailing slash). If this is wrong or missing, login redirects and cookies will fail.
+   - `NEXTAUTH_SECRET` – same value as locally (or generate a new one)
    - `BLOB_READ_WRITE_TOKEN` (if using Vercel Blob)
 
 2. **Run migrations:**

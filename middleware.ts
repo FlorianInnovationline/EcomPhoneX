@@ -32,9 +32,12 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // Match root path and routes that start with /en or /pt
-    // This excludes /admin, /login, /api, /_next, etc.
+    // Storefront: root and locale-prefixed routes
     '/',
     '/(en|pt)(/.*)?',
+    // Admin and login: must run middleware so x-pathname is set for i18n/request.ts
+    '/login',
+    '/admin',
+    '/admin/:path*',
   ],
 }
