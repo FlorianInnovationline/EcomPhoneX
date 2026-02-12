@@ -2,7 +2,10 @@
 
 import { useTranslations } from "next-intl"
 import { motion } from "framer-motion"
+import Image from "next/image"
 import { Link } from "@/i18n/routing"
+
+const TABLET_IMAGE = "/images/placeholders/redmipad2pro.jpg"
 
 export function LuxeTabletsSection() {
   const t = useTranslations("home.luxeTablets")
@@ -11,19 +14,22 @@ export function LuxeTabletsSection() {
     <section className="relative bg-background overflow-hidden">
       <div className="container px-4 py-20 sm:py-24 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Visual – soft gradient + tablet placeholder area */}
+          {/* Image – single block, no nested placeholder */}
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
-            className="relative order-2 lg:order-1 rounded-2xl lg:rounded-3xl overflow-hidden min-h-[320px] sm:min-h-[380px] lg:min-h-[420px] flex items-center justify-center bg-gradient-to-br from-slate-100 via-background to-primary/5 dark:from-slate-900/50 dark:via-background dark:to-primary/10"
+            className="relative order-2 lg:order-1 aspect-[4/3] sm:aspect-video lg:aspect-[4/3] rounded-2xl lg:rounded-3xl overflow-hidden bg-muted/30 border border-border/30"
           >
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_70%_at_30%_70%,var(--primary)/15,transparent)]" />
-            {/* Placeholder tablet frame – replace with real image */}
-            <div className="relative z-10 w-[85%] max-w-[360px] aspect-[4/3] rounded-2xl border border-border/40 bg-muted/30 shadow-xl flex items-center justify-center">
-              <span className="text-muted-foreground/40 text-sm font-light">Tablet</span>
-            </div>
+            <Image
+              src={TABLET_IMAGE}
+              alt="Redmi Pad 2 Pro"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority
+            />
           </motion.div>
 
           {/* Copy */}

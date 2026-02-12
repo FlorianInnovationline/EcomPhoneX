@@ -20,14 +20,14 @@ export function LuxePhonesSection() {
         />
       </div>
 
-      {/* Content overlaid on background – centered */}
-      <div className="relative z-10 flex flex-1 flex-col items-center justify-center text-center px-4 py-20 sm:py-24">
+      {/* Content overlaid on background – left-aligned so text stays clear of phone image */}
+      <div className="relative z-10 flex flex-1 flex-col items-start justify-center px-4 sm:px-6 lg:px-10 py-20 sm:py-24 pl-6 sm:pl-10 lg:pl-[10vw]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: [0.19, 1, 0.22, 1] }}
-          className="max-w-2xl mx-auto space-y-4"
+          className="max-w-xl text-left space-y-4"
         >
           <p className="text-xs sm:text-sm font-light uppercase tracking-[0.25em] text-muted-foreground/70">
             {t("overline")}
@@ -43,7 +43,7 @@ export function LuxePhonesSection() {
           </p>
           <Link
             href="/shop"
-            className="inline-flex items-center justify-center h-12 px-8 rounded-full bg-foreground text-background font-light text-sm tracking-wide hover:bg-foreground/90 transition-colors mt-6"
+            className="inline-flex items-center justify-center h-12 px-8 rounded-full bg-foreground text-background font-light text-sm tracking-wide hover:bg-foreground/90 transition-colors mt-6 w-fit"
           >
             {t("cta")}
           </Link>
