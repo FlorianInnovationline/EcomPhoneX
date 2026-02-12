@@ -15,7 +15,7 @@ import { resolve } from 'path'
 import { createProduct, type CreateProductInput } from '../lib/db/products'
 import { prisma } from '../lib/prisma'
 
-async function loadJsonProducts(filePath: string): CreateProductInput[] {
+function loadJsonProducts(filePath: string): CreateProductInput[] {
   const raw = readFileSync(filePath, 'utf-8')
   const data = JSON.parse(raw)
   const list = Array.isArray(data) ? data : data.products ?? []
@@ -52,7 +52,7 @@ async function main() {
     console.log('ℹ️  Using example file: scripts/products-to-add.example.json\n')
   }
 
-  const products = await loadJsonProducts(jsonPath)
+  const products = loadJsonProducts(jsonPath)
   if (products.length === 0) {
     console.log('No products in file. Exiting.')
     process.exit(0)
