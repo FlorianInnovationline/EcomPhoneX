@@ -162,6 +162,27 @@
     "bestSellers": {
       "title": "Mais Vendidos",
       "subtitle": "Os nossos dispositivos mais populares"
+    },
+    "luxeOS": {
+      "overline": "Experiência",
+      "title": "HyperOS",
+      "tagline": "Inteligentemente Seu",
+      "description": "Fluido, rápido e feito à sua medida. O nosso OS liga os seus dispositivos e adapta-se ao seu ritmo — a sua vida, as suas regras.",
+      "cta": "Saber mais"
+    },
+    "luxePhones": {
+      "overline": "Flagship",
+      "title": "Telemóveis Premium",
+      "tagline": "Potência e elegância na sua mão",
+      "specs": "Ótica Leica · Ecrã 2K · Carregamento 120W",
+      "cta": "Explorar telemóveis"
+    },
+    "luxeTablets": {
+      "overline": "Desenhado para o Seu Ritmo",
+      "title": "Tablets",
+      "tagline": "Criar, ver e viver o momento",
+      "specs": "Ecrã 2.8K · 120Hz · Bateria para o dia inteiro",
+      "cta": "Explorar tablets"
     }
   },
   "product": {

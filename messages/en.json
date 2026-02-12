@@ -162,6 +162,27 @@
     "bestSellers": {
       "title": "Best Sellers",
       "subtitle": "Our most popular devices"
+    },
+    "luxeOS": {
+      "overline": "Experience",
+      "title": "HyperOS",
+      "tagline": "Intelligently Yours",
+      "description": "Seamless, fast, and shaped around you. Our OS connects your devices and adapts to your rhythm — your life, your rules.",
+      "cta": "Learn more"
+    },
+    "luxePhones": {
+      "overline": "Flagship",
+      "title": "Premium Phones",
+      "tagline": "Power and elegance in your hand",
+      "specs": "Leica optics · 2K display · 120W charging",
+      "cta": "Explore phones"
+    },
+    "luxeTablets": {
+      "overline": "Designed for Your Flow",
+      "title": "Tablets",
+      "tagline": "Create, stream, and stay in the moment",
+      "specs": "2.8K display · 120Hz · All-day battery",
+      "cta": "Explore tablets"
     }
   },
   "product": {
