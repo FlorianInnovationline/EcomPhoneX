@@ -256,7 +256,8 @@ export async function createProduct(input: CreateProductInput) {
           currency: v.currency ?? 'EUR',
           inventoryQty: v.inventoryQty ?? 0,
           trackInventory: v.trackInventory ?? true,
-          attributes: v.attributes ?? null,
+          // Prisma Json fields don't accept plain null; use undefined so DB default applies
+          attributes: v.attributes ?? undefined,
           barcode: v.barcode ?? null,
           weight: v.weight ?? null,
           active: v.active ?? true,
