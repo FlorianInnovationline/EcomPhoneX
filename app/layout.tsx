@@ -18,8 +18,8 @@ export default function RootLayout({
   // Locale routes use app/[locale]/layout.tsx which has its own html/body
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="min-w-0 overflow-x-hidden w-full">
-        <div className="min-w-0 max-w-[100vw] overflow-x-hidden">{children}</div>
+      <body className="min-w-0 w-full">
+        <div className="min-w-0 max-w-[100vw]">{children}</div>
       </body>
     </html>
   )

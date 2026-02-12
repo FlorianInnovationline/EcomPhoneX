@@ -61,10 +61,10 @@ export default async function LocaleLayout({
   // Duplicate html/body caused hydration error (mismatch for <nav> in <div>).
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      {/* Normal document scroll on all devices: wrapper grows with content, no inner scroll trap */}
-      <div className="flex min-h-screen min-w-0 max-w-[100vw] flex-col overflow-x-hidden">
+      {/* No overflow on these wrappers: position:sticky in HorizontalScrollPins breaks if any ancestor has overflow-x hidden */}
+      <div className="flex min-h-screen min-w-0 max-w-[100vw] flex-col">
         <Navbar />
-        <main className="min-w-0 w-full overflow-x-hidden">{children}</main>
+        <main className="min-w-0 w-full">{children}</main>
         <div className="mt-auto">
           <Footer />
         </div>

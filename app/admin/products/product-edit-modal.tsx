@@ -86,18 +86,33 @@ export function ProductEditModal({
     setLoadError(null)
     getProductEditDataAction(productId).then((res) => {
       if (cancelled) return
-      if (!res?.product) {
+      const p = res?.product
+      if (!p) {
         setLoadError("Product not found")
         return
       }
-      setData(res)
-      const p = res.product
+      setData({
+        product: {
+          id: p.id,
+          title: p.title,
+          slug: p.slug,
+          brand: p.brand,
+          shortDescription: p.shortDescription,
+          description: p.description,
+          status: String(p.status),
+          isFeatured: p.isFeatured,
+          primaryCategoryId: p.primaryCategoryId,
+          categoryIds: p.categoryIds,
+          images: p.images.map((img) => ({ id: img.id, url: img.url, alt: img.alt ?? "" })),
+        },
+        categories: res.categories,
+      })
       setTitle(p.title)
       setSlug(p.slug)
       setBrand(p.brand)
       setShortDescription(p.shortDescription)
       setDescription(p.description)
-      setStatus(p.status)
+      setStatus(String(p.status))
       setIsFeatured(p.isFeatured)
       setPrimaryCategoryId(p.primaryCategoryId)
       setImagesToRemove([])

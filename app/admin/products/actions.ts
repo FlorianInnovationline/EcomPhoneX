@@ -60,8 +60,16 @@ export async function uploadProductImagesAction(
 ): Promise<{ urls: string[]; error?: string }> {
   const files = formData.getAll("images") as File[]
   if (!files?.length) return { urls: [] }
+  // On Vercel (and similar serverless), the filesystem is read-only; uploads won't persist.
+  if (process.env.VERCEL) {
+    return { urls: [], error: "Image upload is not available in this deployment. Use Vercel Blob or another storage for production." }
+  }
   const dir = path.join(process.cwd(), "public", "images", "products", productId)
-  await mkdir(dir, { recursive: true })
+  try {
+    await mkdir(dir, { recursive: true })
+  } catch (e) {
+    return { urls: [], error: "Could not create upload directory." }
+  }
   const urls: string[] = []
   for (let i = 0; i < files.length; i++) {
     const file = files[i]
@@ -70,7 +78,11 @@ export async function uploadProductImagesAction(
     const base = `${Date.now()}-${i}${ext}`
     const filePath = path.join(dir, base)
     const buf = Buffer.from(await file.arrayBuffer())
-    await writeFile(filePath, buf)
+    try {
+      await writeFile(filePath, buf)
+    } catch (e) {
+      return { urls: [], error: "Failed to save image (e.g. read-only filesystem in production)." }
+    }
     urls.push(`/images/products/${productId}/${base}`)
   }
   return { urls }

@@ -85,10 +85,12 @@ export function HorizontalScrollPins() {
     }
   }, [isMobile])
 
-  // Calculate wrapper height: viewport height + horizontal scroll distance
+  // Wrapper must be taller than viewport so vertical scroll "pauses" while progress 0→1 drives horizontal cards.
+  // Use a minimum extra height so the section pins even before trackWidth is measured (avoids "scrolls over").
+  const extraScrollPx = Math.max(0, trackWidth - viewportWidth, 1200)
   const wrapperHeight = isMobile 
     ? "auto" 
-    : `calc(100vh + ${Math.max(0, trackWidth - viewportWidth)}px)`
+    : `calc(100vh + ${extraScrollPx}px)`
 
   // Use Framer Motion scroll tracking with optimized offset
   const { scrollYProgress } = useScroll({
