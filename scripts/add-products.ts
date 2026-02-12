@@ -1,6 +1,7 @@
 /**
  * Terminal script to add products to the database.
  * Products appear in the storefront and in the admin dashboard.
+ * (loadJsonProducts is sync - no async so Vercel type-check passes.)
  *
  * Usage:
  *   npm run add-products
