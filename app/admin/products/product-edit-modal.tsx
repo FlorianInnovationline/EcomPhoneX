@@ -91,7 +91,7 @@ export function ProductEditModal({
         setLoadError("Product not found")
         return
       }
-      setData({
+      const editData: ProductEditData = {
         product: {
           id: p.id,
           title: p.title,
@@ -106,7 +106,8 @@ export function ProductEditModal({
           images: p.images.map((img) => ({ id: img.id, url: img.url, alt: img.alt ?? "" })),
         },
         categories: res.categories,
-      })
+      }
+      setData(editData)
       setTitle(p.title)
       setSlug(p.slug)
       setBrand(p.brand)
