@@ -18,36 +18,36 @@ const recentOrders = [
 
 export default function AdminAnalyticsPage() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 sm:space-y-8">
       <div>
-        <h1 className="text-3xl font-light tracking-tight">Analytics</h1>
-        <p className="text-muted-foreground/80 font-light">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-light tracking-tight mb-1 sm:mb-2">Analytics</h1>
+        <p className="text-muted-foreground/80 font-light text-sm sm:text-base">
           Overview of your store performance
         </p>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 sm:gap-6 grid-cols-2 lg:grid-cols-4">
         {stats.map((stat) => (
-          <Card key={stat.label}>
-            <CardHeader>
-              <CardTitle className="text-sm font-light text-muted-foreground/60 uppercase tracking-wider">
+          <Card key={stat.label} className="border-border/50">
+            <CardHeader className="pb-1 sm:pb-2 px-4 sm:px-6">
+              <CardTitle className="text-xs sm:text-sm font-light text-muted-foreground/60 uppercase tracking-wider">
                 {stat.label}
               </CardTitle>
             </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-light mb-1">{stat.value}</div>
-              <div className="text-sm text-green-600 font-light">{stat.change}</div>
+            <CardContent className="px-4 sm:px-6 pb-4 sm:pb-6">
+              <div className="text-lg sm:text-2xl font-light mb-0.5 sm:mb-1">{stat.value}</div>
+              <div className="text-xs sm:text-sm text-green-600 font-light">{stat.change}</div>
             </CardContent>
           </Card>
         ))}
       </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle className="font-light">Recent Orders</CardTitle>
+      <Card className="border-border/50">
+        <CardHeader className="px-4 sm:px-6">
+          <CardTitle className="font-light text-base sm:text-lg">Recent Orders</CardTitle>
         </CardHeader>
-        <CardContent>
-          <div className="overflow-x-auto">
+        <CardContent className="px-4 sm:px-6 pb-6">
+          <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
             <table className="w-full">
               <thead>
                 <tr className="border-b border-border/50">

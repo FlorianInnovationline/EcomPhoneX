@@ -180,7 +180,7 @@ export function ProductEditModal({
         title="Edit product"
         description="Update product details and images"
         showClose={true}
-        className="max-w-2xl max-h-[90vh]"
+        className="max-w-2xl max-h-[85vh] sm:max-h-[90vh] w-[95vw] sm:w-full overflow-y-auto"
       >
         {loadError && (
           <p className="text-destructive text-sm">{loadError}</p>

@@ -7,14 +7,12 @@ export default async function AdminCollectionsPage() {
   const collections = await getCollections(true) // Include inactive
 
   return (
-    <div className="space-y-8">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-light tracking-tight">Collections</h1>
-          <p className="text-muted-foreground/80 font-light">
-            Manage product collections
-          </p>
-        </div>
+    <div className="space-y-6 sm:space-y-8">
+      <div>
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-light tracking-tight mb-1 sm:mb-2">Collections</h1>
+        <p className="text-muted-foreground/80 font-light text-sm sm:text-base">
+          Manage product collections
+        </p>
       </div>
 
       <CollectionsList collections={collections} />
